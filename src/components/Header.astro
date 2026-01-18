@@ -1,0 +1,92 @@
+---
+import { NAV_LINKS, SITE_TITLE, SOCIAL_LINKS } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+
+const isExternal = (href: string) => href.startsWith('http');
+const isEmail = (href: string) => href.startsWith('mailto:');
+---
+
+<header>
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			{
+				NAV_LINKS.map((link) => (
+					<HeaderLink href={link.href} aria-label={`Go to the ${link.label} page`}>
+						{link.label}
+					</HeaderLink>
+				))
+			}
+		</div>
+		<div class="social-links">
+			{
+				SOCIAL_LINKS.map((link) => (
+					<a
+						href={link.href}
+						target={isExternal(link.href) ? '_blank' : undefined}
+						rel={isExternal(link.href) ? 'noreferrer noopener' : undefined}
+						class:list={{ email: isEmail(link.href) }}
+					>
+						<span>{link.label}</span>
+					</a>
+				))
+			}
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 1em;
+		background: white;
+		box-shadow: 0 2px 8px rgba(var(--black), 5%);
+	}
+	h2 {
+		margin: 0;
+		font-size: 1em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+	nav a {
+		padding: 1em 0.5em;
+		color: var(--black);
+		border-bottom: 4px solid transparent;
+		text-decoration: none;
+	}
+	nav a.active {
+		text-decoration: none;
+		border-bottom-color: var(--accent);
+	}
+	.social-links,
+	.social-links a {
+		display: flex;
+	}
+	.social-links {
+		gap: 0.25em;
+		font-size: 0.9em;
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+	}
+	.social-links a {
+		padding: 1em 0.5em;
+		color: var(--accent-dark);
+		text-decoration: none;
+		align-items: center;
+	}
+	.social-links a.email {
+		font-weight: 600;
+	}
+	@media (max-width: 720px) {
+		.social-links {
+			display: none;
+		}
+	}
+</style>

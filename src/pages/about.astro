@@ -1,0 +1,44 @@
+---
+import AboutHeroImage from '../assets/blog-placeholder-about.jpg';
+import Layout from '../layouts/BlogPost.astro';
+---
+
+<Layout
+	title="About Me"
+	description="A quick introduction to the person behind eainjon.es."
+	pubDate={new Date('July 15 2024')}
+	heroImage={AboutHeroImage}
+>
+	<p>
+		Hey, I’m Eain—an independent developer and systems tinkerer currently based in the Pacific Northwest. I build
+		content-driven websites, commerce experiences, and automation tooling for small teams that care about craft. My
+		background spans design, engineering leadership, and operations, so I tend to float between strategy meetings and
+		the terminal.
+	</p>
+
+	<p>
+		My sweet spot is working with founders, nonprofits, and agencies that need a partner who can own the entire stack.
+		I translate ideas into wireframes, build in Astro/Shopify/Eleventy, wire up analytics and automation, and document
+		the path so you are never locked in. Long-term projects often include ongoing care plans where I monitor uptime,
+		update dependencies, and make sure the site evolves with the org.
+	</p>
+
+	<h2>Things clients lean on me for</h2>
+	<ul>
+		<li>Design-to-build marketing sites that stay fast on every device.</li>
+		<li>Shopify storefronts that integrate with inventory, POS, and fulfillment tools.</li>
+		<li>Technical documentation, onboarding runbooks, and lightweight operations coaching.</li>
+		<li>Automation glue using Cloudflare Workers, Supabase, Airtable, and Notion.</li>
+	</ul>
+
+	<p>
+		When I am not shipping client work you will usually find me experimenting with new processes for teams: building
+		internal dashboards, prototyping component libraries, and pruning operations backlogs. I believe small, boring
+		tools win most battles. This site is a living lab where I share what I learn.
+	</p>
+
+	<p>
+		If you want thoughtful partners who document as they go, let’s chat. The fastest way to reach me is via
+		<a href="mailto:hello@eainjon.es">hello@eainjon.es</a>.
+	</p>
+</Layout>

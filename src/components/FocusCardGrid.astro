@@ -1,0 +1,48 @@
+---
+interface Card {
+	title: string;
+	copy: string;
+	points: string[];
+}
+
+interface Props {
+	cards: Card[];
+}
+
+const { cards } = Astro.props;
+---
+
+<section class="card-grid">
+	{
+		cards.map((card) => (
+			<article class="card">
+				<h3>{card.title}</h3>
+				<p>{card.copy}</p>
+				<ul>
+					{card.points.map((point) => <li>{point}</li>)}
+				</ul>
+			</article>
+		))
+	}
+</section>
+<style>
+	.card-grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+		gap: 1.5rem;
+		margin: 3rem 0;
+	}
+	.card {
+		padding: 1.5rem;
+		border-radius: 16px;
+		background: white;
+		box-shadow: 0 12px 30px rgba(var(--gray), 0.25);
+	}
+	.card h3 {
+		margin-top: 0;
+	}
+	.card ul {
+		padding-left: 1.1rem;
+		margin: 1rem 0 0;
+	}
+</style>

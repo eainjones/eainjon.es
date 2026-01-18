@@ -1,0 +1,135 @@
+---
+import { getCollection } from 'astro:content';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import FocusCardGrid from '../components/FocusCardGrid.astro';
+import Header from '../components/Header.astro';
+import LatestPosts from '../components/LatestPosts.astro';
+import { CONTACT_EMAIL, SITE_DESCRIPTION, SITE_OWNER, SITE_TITLE } from '../consts';
+
+const posts = (await getCollection('blog'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 3);
+
+const focusCards = [
+	{
+		title: 'Studio projects',
+		copy: 'Fractional product + engineering help for small orgs, agencies, and independent shops.',
+		points: [
+			'Design-to-build Astro, Shopify, and Eleventy sites',
+			'Headless CMS setups (Sanity, Contentful, Notion)',
+			'Automation + integration glue so ops stay simple',
+		],
+	},
+	{
+		title: 'Advisory and ops',
+		copy: 'Bring me your messy docs or stalled roadmap. I love making teams calmer and faster.',
+		points: ['Architecture reviews and pairing sessions', 'Onboarding playbooks and runbooks', 'Async-friendly tooling audits'],
+	},
+	{
+		title: 'This site stack',
+		copy: 'Astro 5, Markdown content collections, and zero-JS templates that deploy anywhere.',
+		points: ['Metadata lives in src/consts.ts', 'Posts live in src/content/blog', 'Ready for GitHub or Cloudflare Pages'],
+	},
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<style>
+			.hero {
+				padding: 2rem 0 3rem;
+			}
+			.hero .eyebrow {
+				margin-bottom: 0.5rem;
+			}
+			.lede {
+				font-size: 1.25rem;
+				max-width: 46ch;
+			}
+			.hero-actions {
+				display: flex;
+				gap: 1rem;
+				flex-wrap: wrap;
+				margin: 1.5rem 0 0;
+			}
+			.hero-actions a {
+				border-radius: 999px;
+				padding: 0.65rem 1.8rem;
+				text-decoration: none;
+				font-weight: 600;
+			}
+			.button {
+				background: var(--accent);
+				color: white;
+			}
+			.button:hover {
+				background: var(--accent-dark);
+			}
+			.ghost {
+				border: 2px solid var(--accent);
+				color: var(--accent);
+			}
+			.hero-meta {
+				list-style: none;
+				display: flex;
+				gap: 1.5rem;
+				padding: 0;
+				margin: 2rem 0 0;
+				flex-wrap: wrap;
+			}
+			.hero-meta span {
+				display: block;
+				text-transform: uppercase;
+				font-size: 0.75rem;
+				letter-spacing: 0.2em;
+				color: rgb(var(--gray));
+			}
+			@media (max-width: 720px) {
+				.hero-actions {
+					flex-direction: column;
+					align-items: flex-start;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<section class="hero">
+				<p class="eyebrow">Independent web dev and systems tinkerer</p>
+				<h1>Hi, I'm {SITE_OWNER}. Let's build generous, fast websites.</h1>
+				<p class="lede">{SITE_DESCRIPTION}</p>
+				<p>
+					I collaborate with climate orgs, local retail, nonprofits, and indie studios around the Pacific
+					Northwest. Every engagement includes documentation handoff, performance budgets, and a plan for what comes next.
+				</p>
+				<div class="hero-actions">
+					<a class="button" href={`mailto:${CONTACT_EMAIL}`}>Start a project</a>
+					<a class="ghost" href="/about">About the studio</a>
+				</div>
+				<ul class="hero-meta">
+					<li>
+						<span>Location</span>
+						Pacific Northwest, USA
+					</li>
+					<li>
+						<span>Availability</span>
+						Booking Q4 2024 sessions
+					</li>
+					<li>
+						<span>Focus</span>
+						Static sites, Shopify, automation, documentation
+					</li>
+				</ul>
+			</section>
+
+			<FocusCardGrid cards={focusCards} />
+
+			<LatestPosts posts={posts} />
+		</main>
+		<Footer />
+	</body>
+</html>

@@ -1,0 +1,47 @@
+---
+import { SITE_OWNER, SOCIAL_LINKS } from '../consts';
+
+const today = new Date();
+const isExternal = (href: string) => href.startsWith('http');
+---
+
+<footer>
+	&copy; {today.getFullYear()} {SITE_OWNER}. Built with Astro and lots of strong coffee.
+	<div class="social-links">
+		{
+			SOCIAL_LINKS.map((link) => (
+				<a
+					href={link.href}
+					target={isExternal(link.href) ? '_blank' : undefined}
+					rel={isExternal(link.href) ? 'noreferrer noopener' : undefined}
+				>
+					{link.label}
+				</a>
+			))
+		}
+	</div>
+</footer>
+<style>
+	footer {
+		padding: 2em 1em 6em 1em;
+		background: linear-gradient(var(--gray-gradient)) no-repeat;
+		color: rgb(var(--gray));
+		text-align: center;
+	}
+	.social-links {
+		display: flex;
+		justify-content: center;
+		gap: 1em;
+		margin-top: 1em;
+		flex-wrap: wrap;
+	}
+	.social-links a {
+		text-decoration: none;
+		color: rgb(var(--gray-dark));
+		font-weight: 600;
+	}
+	.social-links a:hover {
+		color: rgb(var(--gray-dark));
+		text-decoration: underline;
+	}
+</style>

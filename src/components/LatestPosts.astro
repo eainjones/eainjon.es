@@ -1,0 +1,92 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import FormattedDate from './FormattedDate.astro';
+
+interface Props {
+	posts: CollectionEntry<'blog'>[];
+	eyebrow?: string;
+	title?: string;
+	href?: string;
+}
+
+const {
+	posts,
+	eyebrow = 'Latest writing',
+	title = 'Working notes & changelogs',
+	href = '/blog',
+} = Astro.props as Props;
+---
+
+<section class="posts">
+	<header>
+		<div>
+			{eyebrow && <div class="eyebrow">{eyebrow}</div>}
+			<h2>{title}</h2>
+		</div>
+		<a class="view-all" href={href}>View the full archive &rarr;</a>
+	</header>
+	<ul class="post-list">
+		{posts.map((post) => (
+			<li>
+				<a class="post-card" href={`/blog/${post.slug}/`}>
+					<span class="post-date">
+						<FormattedDate date={post.data.pubDate} />
+					</span>
+					<span class="post-title">{post.data.title}</span>
+					<span class="post-description">{post.data.description}</span>
+				</a>
+			</li>
+		))}
+	</ul>
+</section>
+<style>
+	.posts {
+		margin: 4rem 0 0;
+	}
+	.posts header {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 1rem;
+	}
+	.post-list {
+		list-style: none;
+		padding: 0;
+		margin: 2rem 0 0;
+		display: grid;
+		gap: 1.5rem;
+	}
+	.post-list li {
+		padding: 1.25rem;
+		background: white;
+		border-radius: 12px;
+		box-shadow: 0 8px 22px rgba(var(--gray), 0.18);
+	}
+	.post-card {
+		display: block;
+		text-decoration: none;
+		color: inherit;
+	}
+	.post-date {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+		font-size: 0.75rem;
+		color: rgb(var(--gray));
+	}
+	.post-title {
+		display: block;
+		margin: 0.4rem 0 0;
+		font-size: 1.3rem;
+		color: rgb(var(--black));
+	}
+	.post-description {
+		display: block;
+		margin: 0.2rem 0 0;
+		color: rgb(var(--gray));
+	}
+	.view-all {
+		text-decoration: none;
+		font-weight: 600;
+	}
+</style>
