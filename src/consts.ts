@@ -1,6 +1,6 @@
 export const SITE_TITLE = 'eainjon.es';
 export const SITE_DESCRIPTION =
-	"Working notes, experiments, and a digital calling card for Eain Jones. I'm a developer obsessed with small, fast properties on the web.";
+	"Working notes and a digital calling card for Eain Jones—AdTech leader, engineering manager, and systems thinker based in Ireland.";
 export const SITE_OWNER = 'Eain Jones';
 export const CONTACT_EMAIL = 'hello@eainjon.es';
 

@@ -13,23 +13,23 @@ const posts = (await getCollection('blog'))
 
 const focusCards = [
 	{
-		title: 'Studio projects',
-		copy: 'Fractional product + engineering help for small orgs, agencies, and independent shops.',
+		title: 'Engineering leadership',
+		copy: 'Building and scaling distributed engineering teams across multiple time zones and cultures.',
 		points: [
-			'Design-to-build Astro, Shopify, and Eleventy sites',
-			'Headless CMS setups (Sanity, Contentful, Notion)',
-			'Automation + integration glue so ops stay simple',
+			'Managing globally distributed teams (Dublin, Frankfurt, Paris, Boston, SF)',
+			'Overseeing multi-million dollar contractor budgets',
+			'Technical strategy and roadmap development',
 		],
 	},
 	{
-		title: 'Advisory and ops',
-		copy: 'Bring me your messy docs or stalled roadmap. I love making teams calmer and faster.',
-		points: ['Architecture reviews and pairing sessions', 'Onboarding playbooks and runbooks', 'Async-friendly tooling audits'],
+		title: 'AdTech expertise',
+		copy: 'Deep experience in advertising technology platforms, partnerships, and industry dynamics.',
+		points: ['Platform operations and optimization', 'Industry partnerships (LiveRamp, Index Platform)', 'Data-driven decision making'],
 	},
 	{
-		title: 'This site stack',
-		copy: 'Astro 5, Markdown content collections, and zero-JS templates that deploy anywhere.',
-		points: ['Metadata lives in src/consts.ts', 'Posts live in src/content/blog', 'Ready for GitHub or Cloudflare Pages'],
+		title: 'Strategy & innovation',
+		copy: 'Bridging technical execution with business strategy to drive meaningful outcomes.',
+		points: ['Diploma in Strategy & Innovation (UCC)', 'Chief of Staff experience', 'Process improvement and operational excellence'],
 	},
 ];
 ---
@@ -99,29 +99,28 @@ const focusCards = [
 		<Header />
 		<main>
 			<section class="hero">
-				<p class="eyebrow">Independent web dev and systems tinkerer</p>
-				<h1>Hi, I'm {SITE_OWNER}. Let's build generous, fast websites.</h1>
+				<p class="eyebrow">AdTech leader and engineering manager</p>
+				<h1>Hi, I'm {SITE_OWNER}. I build and lead high-performing distributed teams.</h1>
 				<p class="lede">{SITE_DESCRIPTION}</p>
 				<p>
-					I collaborate with climate orgs, local retail, nonprofits, and indie studios around the Pacific
-					Northwest. Every engagement includes documentation handoff, performance budgets, and a plan for what comes next.
+					With nearly a decade of experience at AOL Platforms—most recently as Chief of Staff—I've managed globally distributed engineering teams across Dublin, Frankfurt, Paris, Boston, and San Francisco. I'm passionate about AdTech, AI, and building systems that scale.
 				</p>
 				<div class="hero-actions">
-					<a class="button" href={`mailto:${CONTACT_EMAIL}`}>Start a project</a>
-					<a class="ghost" href="/about">About the studio</a>
+					<a class="button" href={`mailto:${CONTACT_EMAIL}`}>Get in touch</a>
+					<a class="ghost" href="/about">About me</a>
 				</div>
 				<ul class="hero-meta">
 					<li>
 						<span>Location</span>
-						Pacific Northwest, USA
+						Wexford, Ireland
 					</li>
 					<li>
-						<span>Availability</span>
-						Booking Q4 2024 sessions
+						<span>Background</span>
+						9+ years in AdTech
 					</li>
 					<li>
 						<span>Focus</span>
-						Static sites, Shopify, automation, documentation
+						Engineering leadership, AI, AdTech
 					</li>
 				</ul>
 			</section>
