@@ -13,23 +13,23 @@ const posts = (await getCollection('blog'))
 
 const focusCards = [
 	{
-		title: 'Engineering leadership',
-		copy: 'Building and scaling distributed engineering teams across multiple time zones and cultures.',
+		title: 'Scalable systems',
+		copy: 'At Appliscale, we build systems that handle extreme scale—millions of users and billions of events.',
 		points: [
-			'Managing globally distributed teams (Dublin, Frankfurt, Paris, Boston, SF)',
-			'Overseeing multi-million dollar contractor budgets',
-			'Technical strategy and roadmap development',
+			'Systems serving 4+ million concurrent users',
+			'Processing 400+ million daily events',
+			'Millisecond response times at volume',
 		],
 	},
 	{
-		title: 'AdTech expertise',
-		copy: 'Deep experience in advertising technology platforms, partnerships, and industry dynamics.',
-		points: ['Platform operations and optimization', 'Industry partnerships (LiveRamp, Index Platform)', 'Data-driven decision making'],
+		title: 'Digital engineering',
+		copy: 'Full-service consulting, development, and scaling for enterprise-grade applications.',
+		points: ['Cloud expertise (AWS, capacity planning, cost optimization)', 'Custom development and systems architecture', 'Lean and Agile methodologies'],
 	},
 	{
-		title: 'Strategy & innovation',
-		copy: 'Bridging technical execution with business strategy to drive meaningful outcomes.',
-		points: ['Diploma in Strategy & Innovation (UCC)', 'Chief of Staff experience', 'Process improvement and operational excellence'],
+		title: 'Global delivery',
+		copy: '80+ specialists across Poland and Ireland delivering mission-critical solutions.',
+		points: ['10+ years of proven delivery', '45+ projects successfully delivered', 'Partners: AWS, Databricks, Datadog'],
 	},
 ];
 ---
@@ -99,14 +99,14 @@ const focusCards = [
 		<Header />
 		<main>
 			<section class="hero">
-				<p class="eyebrow">AdTech leader and engineering manager</p>
-				<h1>Hi, I'm {SITE_OWNER}. I build and lead high-performing distributed teams.</h1>
+				<p class="eyebrow">COO at Appliscale</p>
+				<h1>Hi, I'm {SITE_OWNER}. I help companies build systems that scale.</h1>
 				<p class="lede">{SITE_DESCRIPTION}</p>
 				<p>
-					With nearly a decade of experience at AOL Platforms—most recently as Chief of Staff—I've managed globally distributed engineering teams across Dublin, Frankfurt, Paris, Boston, and San Francisco. I'm passionate about AdTech, AI, and building systems that scale.
+					As COO at <a href="https://appliscale.io">Appliscale</a>, I lead a team of 80+ engineers delivering scalable, high-performance systems for enterprise clients. Previously Chief of Staff at AOL Platforms, I bring deep experience in AdTech, distributed teams, and operational excellence.
 				</p>
 				<div class="hero-actions">
-					<a class="button" href={`mailto:${CONTACT_EMAIL}`}>Get in touch</a>
+					<a class="button" href="https://appliscale.io">Visit Appliscale</a>
 					<a class="ghost" href="/about">About me</a>
 				</div>
 				<ul class="hero-meta">
@@ -115,12 +115,12 @@ const focusCards = [
 						Wexford, Ireland
 					</li>
 					<li>
-						<span>Background</span>
-						9+ years in AdTech
+						<span>Company</span>
+						Appliscale
 					</li>
 					<li>
 						<span>Focus</span>
-						Engineering leadership, AI, AdTech
+						Scalable systems, engineering culture
 					</li>
 				</ul>
 			</section>
